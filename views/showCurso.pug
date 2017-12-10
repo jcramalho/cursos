@@ -1,0 +1,55 @@
+extends layout
+
+block content
+    div(class="w3-container")
+      header(class='w3-container w3-teal w3-center')
+        h1= c.designacao
+    div(class="w3-row")
+        div(class="w3-col s6 w3-padding")
+            div(class="w3-card-4")
+                header(class="w3-container w3-teal")
+                    h3 Caraterização
+                div(class="w3-container")
+                    table(class='w3-table')
+                        tr
+                            th Sigla
+                            td= c.ident
+                        tr
+                            th Designação
+                            td= c.designacao
+                        tr
+                            th Curso
+                            td= c.curso 
+                        tr
+                            th Ano Letivo
+                            td= c.anoLetivo 
+                        tr
+                            th #Alunos
+                            td= c.nalunos
+        div(class="w3-col s6 w3-padding")
+            div(class="w3-card-4")
+                header(class="w3-container w3-teal")
+                    h3 Alunos
+                div(class="w3-container")
+                    table(class='w3-table')
+                        tr
+                            th Número
+                            th Nome
+                        each a in c.alunos 
+                            tr
+                                td
+                                    a(href="/cursos/curso/"+c.ident+"/aluno/" + a.numero)=a.numero
+                                td= a.nome
+    div(class='w3-container')
+        header(class='w3-container w3-teal')
+            h4 Novo aluno:
+    div(class="w3-card-4")
+        form(class="w3-container" method="POST" action="/cursos/curso/"+c.ident+"/aluno")
+            input(class="w3-input" type="text" placeholder="Número/Identificador" name="numero")
+            input(class="w3-input" type="text" placeholder="Nome" name="nome")
+            input(class="w3-btn w3-teal" type="submit" value="Adicionar")
+    footer(class='w3-container w3-teal')
+      address Gerado por GUCs by jcr
+        a(href="/cursos") Voltar a Cursos
+
+    

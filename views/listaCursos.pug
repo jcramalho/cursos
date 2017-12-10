@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    div(class="w3-container")
+      header(class='w3-container w3-teal w3-center')
+        h1 Lista de Cursos
+    div(class='w3-container')
+      table(class='w3-table-all')
+        tr
+          th Sigla
+          th Designação
+          th Curso
+          th Ano Letivo
+          th #Alunos
+        each c in lc
+          tr
+            td
+                a(href="/cursos/curso/" + c.ident)=c.ident
+            td= c.designacao
+            td= c.curso
+            td= c.anoLetivo
+            td= c.alunos.length
+    div(class='w3-container')
+        header(class='w3-container w3-teal')
+            h4 Novo curso:
+    div(class="w3-card-4")
+        form(class="w3-container" method="POST" action="/cursos/curso")
+            input(class="w3-input" type="text" placeholder="Sigla" name="ident")
+            input(class="w3-input" type="text" placeholder="Designação" name="designacao")
+            input(class="w3-input" type="text" placeholder="Curso" name="curso")
+            input(class="w3-input" type="text" placeholder="Ano letivo" name="anoLetivo")
+            input(class="w3-btn w3-teal" type="submit" value="Adicionar")
+    footer(class='w3-container w3-teal')
+      address Gerado por GUCs by jcr
+
+    

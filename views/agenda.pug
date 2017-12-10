@@ -1,0 +1,27 @@
+extends layout
+
+block content
+    div(class="w3-container")
+      header(class='w3-container w3-teal w3-center')
+        h1 Arquivo Musical Digital (V6.0) :: Agenda
+        h2= ag.titulo
+    div(class='w3-container')
+      table(class='w3-table-all')
+        tr
+          th Tipo
+          th Data
+          th Local
+          th Horário
+          th Informações
+
+        each a in ag.atividades
+          tr
+            td= a.tipo
+            td= a.data
+            td= a.local
+            td= a.horario
+            td= a.informacoes
+    footer(class='w3-container w3-teal')
+      address Gerado por AMDapp by jcr
+
+    

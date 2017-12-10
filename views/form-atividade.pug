@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    div(class="w3-container")
+        header(class='w3-container w3-center')
+            h1 Arquivo Musical Digital (V6.0) :: Agenda
+    div(class='w3-container')
+        header(class='w3-container w3-teal')
+            h2 Nova atividade:
+    div(class="w3-card-4")
+        form(class="w3-container" method="POST" action="/agenda/atividade")
+            select(class="w3-select" name="tipo")
+                option(value="" disabled selected) Selecione um opção
+                option(value="Concerto") Concerto
+                option(value="Ensaio") Ensaio
+                option(value="Festividade") Festividade
+            input(class="w3-input" type="text" placeholder="Data da atividade" name="data")
+            input(class="w3-input" type="text" placeholder="Local" name="local")
+            input(class="w3-input" type="text" placeholder="Horário" name="horario")
+            input(class="w3-input" type="text" placeholder="Informações" name="informacoes")
+            input(class="w3-btn w3-green" type="submit" value="Adicionar")
+    div(class='w3-container')
+        footer(class='w3-container w3-teal')
+            address Gerado por AMDapp by jcr
